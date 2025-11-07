@@ -1,0 +1,52 @@
+.visual-banner {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  transition: background-image 1.2s ease-in-out;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.frase {
+  font-size: 3rem;
+  font-weight: bold;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeText 1s ease-in-out;
+}
+
+/* Efeitos de transição */
+@keyframes fadeText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
