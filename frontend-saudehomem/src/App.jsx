@@ -9,6 +9,7 @@ import ExamesSexuais from './pages/ExamesSexuais';
 import Dicas from './pages/Dicas';
 import VisualComponents from './pages/VisualComponents';
 import Agendamento from './pages/Agendamento';
+import Contato from './pages/contato'; // novocd 
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/exames-sexuais" element={<ExamesSexuais />} />
         <Route path="/dicas" element={<Dicas />} />
         <Route path="/agendamento" element={<Agendamento />} />
+
+        <Route path="/contato" element={<Contato />} /> {/* NOVA ROTA */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,52 +1,102 @@
-.visual-banner {
-  height: 100vh;
+.visual-banner.premium {
   width: 100%;
+  height: 82vh;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-  transition: background-image 1.2s ease-in-out;
+  transition: background-image 1.2s ease-in-out, transform 0.5s ease;
+  border-radius: 0 0 48px 48px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  transform: translateZ(0);
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 2rem 3rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 1s ease-in-out;
+/* Efeito de brilho premium */
+.visual-banner.premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.02) 50%,
+    rgba(255,255,255,0.08) 100%
+  );
+  opacity: 0.35;
+  pointer-events: none;
 }
 
-.frase {
+/* Overlay azul-clínico elegante */
+.overlay-premium {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 25, 55, 0.48);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlayFade 1.2s ease forwards;
+}
+
+/* Texto premium */
+.frase-premium {
   font-size: 3rem;
-  font-weight: bold;
-  max-width: 900px;
-  margin: 0 auto;
-  animation: fadeText 1s ease-in-out;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  max-width: 950px;
+  line-height: 1.25;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  animation: fraseSlide 1.3s ease forwards 0.3s;
 }
 
-/* Efeitos de transição */
-@keyframes fadeText {
+/* Animação do texto */
+@keyframes fraseSlide {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes fadeIn {
+/* Animação overlay */
+@keyframes overlayFade {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .frase-premium {
+    font-size: 1.9rem;
+    padding: 0 22px;
+  }
+
+  .visual-banner.premium {
+    height: 60vh;
+    border-radius: 0 0 32px 32px;
+  }
+}
+
+/* Responsivo mobile ultra small */
+@media (max-width: 480px) {
+  .frase-premium {
+    font-size: 1.6rem;
+    padding: 0 15px;
   }
 }
